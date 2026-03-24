@@ -3,7 +3,7 @@
 // Change BASE_URL here when deploying to production
 // ─────────────────────────────────────────────────────────
 export const BASE_URL =
-  process.env.REACT_APP_API_URL || 'http://34.31.237.54:5000/api';
+  process.env.REACT_APP_API_URL || 'http://34.31.237.54/api';
 
 // Generic fetch wrapper
 // Automatically attaches Bearer token if available in localStorage
