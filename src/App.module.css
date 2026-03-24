@@ -1,0 +1,14 @@
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 28px 90px;
+}
+
+.allCatsSection { margin-bottom: 32px; }
+
+.section { margin-bottom: 32px; }
+
+@media (max-width: 480px) {
+  .main         { padding: 12px 12px 80px; }
+  .allCatsSection { display: none; }
+}

@@ -1,0 +1,78 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #16a05a;
+  --green-dark: #0d7a42;
+  --green-light: #e8f8ef;
+  --green-mid: #22c76e;
+  --orange: #f95d2b;
+  --yellow: #f5b800;
+  --dark: #081210;
+  --text: #18271f;
+  --muted: #748a7e;
+  --border: #deeee6;
+  --bg: #f2f8f5;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 8px rgba(22,160,90,.08);
+  --shadow: 0 8px 32px rgba(22,160,90,.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.14);
+  --radius: 20px;
+  --radius-sm: 14px;
+  --font-d: 'Fraunces', serif;
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-b);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button, select { font-family: var(--font-b); }
+
+/* Scrollbar hide */
+.hs { scrollbar-width: none; -ms-overflow-style: none; }
+.hs::-webkit-scrollbar { display: none; }
+
+/* Animations */
+@keyframes fadeIn   { from { opacity: 0 } to { opacity: 1 } }
+@keyframes slideUp  { from { opacity: 0; transform: translateY(24px) scale(.97) } to { opacity: 1; transform: none } }
+@keyframes float    { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-12px) rotate(2deg) } }
+@keyframes blink    { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
+@keyframes spin     { to { transform: rotate(360deg) } }
+@keyframes shimmer  { 0% { background-position: -300% 0 } 100% { background-position: 300% 0 } }
+@keyframes badgePop { 0% { transform: scale(0) } 70% { transform: scale(1.15) } 100% { transform: scale(1) } }
+
+/* Skeleton */
+.skel {
+  background: linear-gradient(90deg,#edf5f1 25%,#deeee8 50%,#edf5f1 75%);
+  background-size: 300% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 12px;
+}
+
+/* Delivery badge */
+.dlv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #081210, var(--green-dark));
+  color: #fff;
+  border-radius: 100px;
+  padding: 7px 16px 7px 10px;
+  font-size: .78rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: .02em;
+  box-shadow: 0 4px 16px rgba(22,160,90,.25);
+}
+.blink-dot {
+  width: 8px; height: 8px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+  display: inline-block;
+  box-shadow: 0 0 6px var(--yellow);
+}

@@ -1,0 +1,19 @@
+.wrap { position: relative; }
+
+.outer { overflow-x: auto; padding: 4px 2px 14px; margin: 0 -2px; }
+.inner { display: flex; gap: 14px; width: max-content; }
+
+.btn {
+  position: absolute; top: 50%; transform: translateY(-60%);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #fff; border: 1.5px solid var(--border);
+  cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  z-index: 5; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s; color: var(--text);
+}
+.btn:hover { background: var(--green); color: #fff; border-color: var(--green); box-shadow: 0 6px 20px rgba(22,160,90,.3); }
+.left  { left: -18px; }
+.right { right: -18px; }
+
+@media (max-width: 480px) { .btn { display: none; } }

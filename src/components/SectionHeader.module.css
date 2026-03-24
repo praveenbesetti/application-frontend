@@ -1,0 +1,18 @@
+.wrap {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 18px;
+}
+.title {
+  font-family: var(--font-d); font-size: 1.3rem;
+  font-weight: 700; color: var(--dark); letter-spacing: -.3px;
+}
+.seeAll {
+  font-size: .8rem; font-weight: 700; color: var(--green);
+  cursor: pointer; display: flex; align-items: center; gap: 5px;
+  padding: 6px 14px; border-radius: 100px;
+  background: var(--green-light); border: 1.5px solid var(--border);
+  transition: all .18s; letter-spacing: .01em;
+}
+.seeAll:hover { background: var(--green); color: #fff; border-color: var(--green); gap: 8px; }
+
+@media (max-width: 480px) { .title { font-size: 1.05rem; } }

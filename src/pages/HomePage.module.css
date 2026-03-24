@@ -1,0 +1,48 @@
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 28px 90px;
+}
+.allCatsSection { margin-bottom: 32px; }
+.section        { margin-bottom: 32px; }
+
+/* ── Mobile only: category icon scroll strip ── */
+.mobileCats { display: none; margin-bottom: 24px; }
+
+.mobileCatsScroll {
+  display: flex; gap: 12px;
+  overflow-x: auto; padding: 4px 0 8px;
+  scrollbar-width: none;
+}
+.mobileCatsScroll::-webkit-scrollbar { display: none; }
+
+.mobileCatItem {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  cursor: pointer; flex-shrink: 0; min-width: 64px;
+}
+.mobileCatIcon {
+  width: 58px; height: 58px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; border: 1.5px solid var(--border);
+  transition: transform .2s, box-shadow .2s;
+}
+.mobileCatItem:hover .mobileCatIcon {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(22,160,90,.18);
+  border-color: var(--green);
+}
+.mobileCatItem:active .mobileCatIcon { transform: scale(.94); }
+
+.mobileCatName {
+  font-size: .65rem; font-weight: 700; color: var(--text);
+  text-align: center; line-height: 1.2;
+  max-width: 62px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .main           { padding: 12px 12px 80px; }
+  .allCatsSection { display: none; }
+  .mobileCats     { display: block; }
+}
