@@ -16,13 +16,16 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20' # Match your local version
+        node-version: '20'
 
-    - name: Install dependencies and Build
-      run: |
-        npm install
-        npm run build 
-        # Note: This creates the 'dist' or 'build' folder
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+      env:
+        # If your React app uses environment variables, add them here:
+        REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
@@ -34,5 +37,13 @@ jobs:
 
     - name: Upload to GCS
       run: |
-       # Try ./dist if you are using Vite, or ./build if using Create React App
-       gsutil -m rsync -d -r ./dist "gs://${{ secrets.GCP_BUCKET_NAME }}"
+        # Synchronize the build folder with your bucket
+        # -m: parallel upload (faster)
+        # -d: delete files in bucket that aren't in the build folder
+        # -r: recursive
+        gsutil -m rsync -d -r ./build "gs://${{ secrets.GCP_BUCKET_NAME }}"
+
+    - name: Set Cache-Control for index.html
+      run: |
+        # Prevent browsers from caching index.html so they always get the latest version
+        gsutil setmeta -h "Cache-Control:no-cache, no-store, must-revalidate" "gs://${{ secrets.GCP_BUCKET_NAME }}/index.html"
