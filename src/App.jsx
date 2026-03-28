@@ -16,7 +16,8 @@ import CartPage                from './pages/CartPage';
 import SignInPage              from './pages/SignInPage';
 import VillageSurveyForm from './components/Villagesurveyform';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'https://myfarmapp.duckdns.org/api';
+// axios.defaults.baseURL ='http://localhost:5000/api'
 export default function App() {
   const dispatch   = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
